@@ -1,0 +1,30 @@
+[agent]
+role = "spec-author"
+description = "Generates design system specs from primitives list — token tables, states, variants per primitive"
+layer = "specification"
+
+[model]
+provider = "deepseek"
+model = "deepseek-v4-pro"
+
+[skills]
+names = [
+  "flutter-ui-design",
+  "flutter-tdd"
+]
+
+[toolsets]
+enabled = [
+  "terminal",
+  "file"
+]
+
+[context]
+requires = [
+  { role = "requirement-analyst", output = "design-analysis.json" }
+]
+produces = "design-system-specs"
+
+[dependencies]
+adapters = []
+system_packages = []
