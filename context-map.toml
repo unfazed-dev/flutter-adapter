@@ -1,76 +1,143 @@
 # Flutter Adapter — Context Map
-# DDD strategic pattern: declares how bounded contexts (agent layers)
-# relate to each other. Used by the orchestrator to determine
-# execution order and parallelism.
+# DDD bounded contexts and their integration relationships.
 
 [[contexts]]
 name = "discovery"
-agents = ["requirement-analyst", "context-mapper"]
-upstream = []
-downstream = ["specification", "domain"]
+description = "Requirement gathering and context mapping from design files"
+owner = "requirement-analyst"
 
 [[contexts]]
 name = "specification"
-agents = ["spec-author"]
-upstream = ["discovery"]
-downstream = ["presentation", "quality"]
+description = "Design system specs and component definitions"
+owner = "spec-author"
 
 [[contexts]]
 name = "domain"
-agents = ["entity-designer"]
-upstream = ["discovery"]
-downstream = ["infrastructure", "application"]
+description = "Core domain entities, value objects, aggregates"
+owner = "entity-designer"
 
 [[contexts]]
 name = "infrastructure"
-agents = ["infra-builder"]
-upstream = ["domain"]
-downstream = ["application"]
+description = "Database, storage, external services"
+owner = "infra-builder"
 
 [[contexts]]
 name = "application"
-agents = ["state-manager", "navigation-designer"]
-upstream = ["domain", "infrastructure", "discovery", "specification"]
-downstream = ["presentation"]
+description = "Application services, state management, commands"
+owner = "state-manager"
 
 [[contexts]]
 name = "presentation"
-agents = ["widget-composer", "theme-builder"]
-upstream = ["specification", "domain", "infrastructure", "application"]
-downstream = ["delivery", "quality"]
+description = "Flutter widgets and Material Design theme"
+owner = "widget-composer"
 
 [[contexts]]
 name = "quality"
-agents = ["test-runner", "code-reviewer", "spec-inspector", "design-critic", "code-critic"]
-upstream = ["presentation", "specification", "domain"]
-downstream = []
+description = "Testing, code review, design critique"
+owner = "test-runner"
 
 [[contexts]]
 name = "delivery"
-agents = ["build-agent", "deploy-agent"]
-upstream = ["presentation"]
-downstream = ["operations"]
+description = "Build and deployment"
+owner = "build-agent"
 
 [[contexts]]
 name = "operations"
-agents = ["env-doctor"]
-upstream = ["delivery"]
-downstream = []
+description = "Environment validation and tooling"
+owner = "env-doctor"
 
-[relationships]
-discovery_specification = "partner"
-discovery_domain = "partner"
-specification_presentation = "partner"
-specification_quality = "partner"
-domain_infrastructure = "partner"
-domain_application = "partner"
-infrastructure_application = "partner"
-application_presentation = "partner"
-presentation_delivery = "partner"
-presentation_quality = "partner"
-delivery_operations = "partner"
-discovery_application = "partner"
-specification_application = "partner"
-domain_presentation = "partner"
-infrastructure_presentation = "partner"
-domain_quality = "partner"
+[[relationships]]
+upstream = "discovery"
+downstream = "specification"
+pattern = "customer-supplier"
+description = "Specifications are generated from discovered requirements"
+
+[[relationships]]
+upstream = "discovery"
+downstream = "domain"
+pattern = "customer-supplier"
+description = "Domain model is driven by context mapping from discovery"
+
+[[relationships]]
+upstream = "specification"
+downstream = "presentation"
+pattern = "customer-supplier"
+description = "Components are built to match specifications"
+
+[[relationships]]
+upstream = "specification"
+downstream = "quality"
+pattern = "customer-supplier"
+description = "Quality gates validate against specification"
+
+[[relationships]]
+upstream = "domain"
+downstream = "infrastructure"
+pattern = "customer-supplier"
+description = "Infrastructure implements domain repository interfaces"
+
+[[relationships]]
+upstream = "domain"
+downstream = "application"
+pattern = "customer-supplier"
+description = "Application services orchestrate domain entities"
+
+[[relationships]]
+upstream = "infrastructure"
+downstream = "application"
+pattern = "customer-supplier"
+description = "Application layer depends on infrastructure implementations"
+
+[[relationships]]
+upstream = "application"
+downstream = "presentation"
+pattern = "customer-supplier"
+description = "Presentation reads application state and dispatches commands"
+
+[[relationships]]
+upstream = "presentation"
+downstream = "delivery"
+pattern = "customer-supplier"
+description = "Delivery packages presentation artifacts"
+
+[[relationships]]
+upstream = "presentation"
+downstream = "quality"
+pattern = "customer-supplier"
+description = "Quality tests presentation components"
+
+[[relationships]]
+upstream = "discovery"
+downstream = "application"
+pattern = "customer-supplier"
+description = "Application services reference context mapping from discovery"
+
+[[relationships]]
+upstream = "specification"
+downstream = "application"
+pattern = "customer-supplier"
+description = "Application state is informed by design specs"
+
+[[relationships]]
+upstream = "domain"
+downstream = "presentation"
+pattern = "customer-supplier"
+description = "Presentation components consume domain entities"
+
+[[relationships]]
+upstream = "infrastructure"
+downstream = "presentation"
+pattern = "customer-supplier"
+description = "Presentation layer reads from infrastructure"
+
+[[relationships]]
+upstream = "domain"
+downstream = "quality"
+pattern = "customer-supplier"
+description = "Quality tests domain logic"
+
+[[relationships]]
+upstream = "delivery"
+downstream = "operations"
+pattern = "customer-supplier"
+description = "Operations validates deployment environment"
