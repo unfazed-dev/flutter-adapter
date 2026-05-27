@@ -1,7 +1,7 @@
 # Flutter Adapter — Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers-subagent-driven-development (recommended) or superpowers-executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
-**Goal:** Build the flutter-adapter from ADRs into a complete, installable package — 15 agents across 9 DDD layers, ADAPTER.toml manifest, scaffold templates, and 5 stack-specialist skills.
+**Goal:** Build the flutter-adapter from ADRs into a complete, installable package — 17 agents across 9 DDD layers, ADAPTER.toml manifest, scaffold templates, and 5 stack-specialist skills.
 **Architecture:** Nine-directory DDD+Croft layout. Each agent .toml is self-contained with skills, toolsets, and context dependencies. ADAPTER.toml is the discovery manifest. Scaffold templates use Cookiecutter-style `{{ variable }}` substitution.
 **Tech Stack:** TOML config, Dart/Flutter toolchain, Cookiecutter templates, git.
 
