@@ -1,0 +1,30 @@
+[agent]
+role = "env-doctor"
+description = "Validates Flutter/Dart/CocoaPods/Android SDK/Xcode environment — produces readiness report, catches toolchain issues before pipeline runs"
+layer = "operations"
+
+[model]
+provider = "deepseek"
+model = "deepseek-v4-pro"
+
+[skills]
+names = [
+  "flutter-debugging",
+  "flutter-platform-validation"
+]
+
+[toolsets]
+enabled = [
+  "terminal",
+  "file"
+]
+
+[context]
+requires = [
+  { role = "build-agent", output = "build/" }
+]
+produces = "env-readiness-report.md"
+
+[dependencies]
+adapters = []
+system_packages = ["flutter", "dart", "cocoapods", "android-sdk", "xcode"]
