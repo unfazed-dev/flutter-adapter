@@ -56,7 +56,7 @@ Code review checklist specialized for Flutter/Dart applications. Covers widget c
 - [ ] `ExcludeSemantics` on decorative elements
 - [ ] Contrast ratio ≥ 4.5:1 for text, ≥ 3:1 for large text
 - [ ] Interactive targets are ≥ 48x48 logical pixels
-- [ ] Text scales properly with `MediaQuery.textScaleFactor`
+- [ ] Text scales properly with `MediaQuery.textScaler.textScaleFactor`
 
 ### Dart Best Practices
 - [ ] `final` over `var` where possible
