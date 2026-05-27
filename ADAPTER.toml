@@ -1,0 +1,139 @@
+# Flutter Adapter — Manifest
+# MCP server card format + CrewAI agent list.
+# Read by `maestro kit install` to resolve abstract roles → concrete agents.
+
+name = "flutter-adapter"
+version = "1.0.0"
+description = "Flutter stack specialist — mobile + web agents, Material Design specs, CocoaPods CI, Shorebird code push"
+
+[author]
+name = "Maestro Platform"
+url = "https://github.com/maestro-adapters/flutter-adapter"
+
+[[agents]]
+role = "requirement-analyst"
+path = "discovery/requirement-analyst.toml"
+description = "Translates project briefs and design files into structured requirements"
+
+[[agents]]
+role = "context-mapper"
+path = "discovery/context-mapper.toml"
+description = "Identifies bounded contexts, maps screen-to-context assignments"
+
+[[agents]]
+role = "spec-author"
+path = "specification/spec-author.toml"
+description = "Generates design system specs from primitives and composite lists"
+
+[[agents]]
+role = "entity-designer"
+path = "domain/entity-designer.toml"
+description = "Designs DDD domain entities, value objects, aggregates, and repositories"
+
+[[agents]]
+role = "infra-builder"
+path = "infrastructure/persistence/infra-builder.toml"
+description = "Sets up infrastructure: migrations, edge functions, config, storage"
+
+[[agents]]
+role = "state-manager"
+path = "application/state-manager.toml"
+description = "Implements application services, commands, queries, and state management"
+
+[[agents]]
+role = "navigation-designer"
+path = "application/navigation-designer.toml"
+description = "Designs route tables, deep linking, and navigation patterns"
+
+[[agents]]
+role = "widget-composer"
+path = "presentation/widget-composer.toml"
+description = "Builds Flutter widgets from screen specifications and design tokens"
+
+[[agents]]
+role = "theme-builder"
+path = "presentation/theme-builder.toml"
+description = "Generates Material Design theme from design system token tables"
+
+[[agents]]
+role = "test-runner"
+path = "quality/test-runner.toml"
+description = "Runs Flutter unit, widget, and integration tests; reports results"
+
+[[agents]]
+role = "code-reviewer"
+path = "quality/code-reviewer.toml"
+description = "Reviews Flutter/Dart code for best practices, DDD discipline, test coverage"
+
+[[agents]]
+role = "build-agent"
+path = "delivery/build-agent.toml"
+description = "Builds Flutter APK/IPA/web artifacts, runs CI checks"
+
+[[agents]]
+role = "deploy-agent"
+path = "delivery/deploy-agent.toml"
+description = "Deploys to app stores, Shorebird code push, or web hosting"
+
+[[agents]]
+role = "env-doctor"
+path = "operations/env-doctor.toml"
+description = "Validates Flutter/Dart/CocoaPods/Android SDK environment"
+
+[[agents]]
+role = "spec-inspector"
+path = "quality/spec-inspector.toml"
+description = "Validates design analysis against known spec schemas — primitives, states, variants, tokens"
+
+[[agents]]
+role = "design-critic"
+path = "quality/design-critic.toml"
+description = "Reviews design tokens against HIG Liquid Glass + M3 Expressive Alpha — inconsistency, contrast, missing states"
+
+[[agents]]
+role = "code-critic"
+path = "quality/code-critic.toml"
+description = "Checks DDD layer discipline, TDD compliance, code structure, naming conventions"
+
+[[skills]]
+name = "flutter-tdd"
+description = "Test-driven development for Flutter/Dart with widget testing and Golden tests"
+
+[[skills]]
+name = "flutter-code-review"
+description = "Flutter/Dart code review with best practice checks and DDD layer discipline"
+
+[[skills]]
+name = "flutter-ui-design"
+description = "Flutter Material Design composition patterns and HIG/M3 token application"
+
+[[skills]]
+name = "flutter-debugging"
+description = "Flutter-specific debugging: CanvasKit rendering, widget tree, state inspection, platform validation"
+
+[[skills]]
+name = "flutter-platform-validation"
+description = "PlatformView and native embed validation on Android and iOS"
+
+[capabilities]
+roles = [
+  "requirement-analyst",
+  "context-mapper",
+  "spec-author",
+  "entity-designer",
+  "infra-builder",
+  "state-manager",
+  "navigation-designer",
+  "widget-composer",
+  "theme-builder",
+  "test-runner",
+  "code-reviewer",
+  "build-agent",
+  "deploy-agent",
+  "env-doctor",
+  "spec-inspector",
+  "design-critic",
+  "code-critic"
+]
+stacks = ["flutter", "dart"]
+platforms = ["ios", "android", "web", "macos", "linux", "windows"]
