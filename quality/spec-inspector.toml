@@ -1,0 +1,29 @@
+[agent]
+role = "spec-inspector"
+description = "Validates design analysis against known spec schemas — checks primitives, states, variants, design tokens"
+layer = "quality"
+
+[model]
+provider = "deepseek"
+model = "deepseek-v4-pro"
+
+[skills]
+names = [
+  "flutter-ui-design"
+]
+
+[toolsets]
+enabled = [
+  "terminal",
+  "file"
+]
+
+[context]
+requires = [
+  { role = "requirement-analyst", output = "design-analysis.json" }
+]
+produces = "spec-inspection-report.md"
+
+[dependencies]
+adapters = []
+system_packages = []

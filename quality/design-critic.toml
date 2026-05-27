@@ -1,0 +1,30 @@
+[agent]
+role = "design-critic"
+description = "Reviews design tokens against HIG Liquid Glass + M3 Expressive Alpha — inconsistency, contrast violations, missing states"
+layer = "quality"
+
+[model]
+provider = "deepseek"
+model = "deepseek-v4-pro"
+
+[skills]
+names = [
+  "flutter-ui-design",
+  "flutter-platform-validation"
+]
+
+[toolsets]
+enabled = [
+  "terminal",
+  "file"
+]
+
+[context]
+requires = [
+  { role = "spec-author", output = "design-system-specs" }
+]
+produces = "design-critique.md"
+
+[dependencies]
+adapters = []
+system_packages = []

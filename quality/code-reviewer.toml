@@ -1,0 +1,30 @@
+[agent]
+role = "code-reviewer"
+description = "Reviews Flutter/Dart code — test coverage, error handling, performance, security, edge cases, DDD discipline"
+layer = "quality"
+
+[model]
+provider = "deepseek"
+model = "deepseek-v4-pro"
+
+[skills]
+names = [
+  "flutter-code-review",
+  "flutter-tdd"
+]
+
+[toolsets]
+enabled = [
+  "terminal",
+  "file"
+]
+
+[context]
+requires = [
+  { role = "test-runner", output = "test-report.json" }
+]
+produces = "review-report.md"
+
+[dependencies]
+adapters = []
+system_packages = []

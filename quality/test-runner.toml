@@ -1,0 +1,31 @@
+[agent]
+role = "test-runner"
+description = "Runs Flutter unit, widget, and integration tests — enforces TDD gate before code review"
+layer = "quality"
+
+[model]
+provider = "deepseek"
+model = "deepseek-v4-pro"
+
+[skills]
+names = [
+  "flutter-tdd",
+  "flutter-debugging"
+]
+
+[toolsets]
+enabled = [
+  "terminal",
+  "file"
+]
+
+[context]
+requires = [
+  { role = "widget-composer", output = "flutter-app/presentation/" },
+  { role = "state-manager", output = "shared/application/" }
+]
+produces = "test-report.json"
+
+[dependencies]
+adapters = []
+system_packages = ["flutter", "dart"]

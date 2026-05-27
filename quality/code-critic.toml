@@ -1,0 +1,29 @@
+[agent]
+role = "code-critic"
+description = "Checks DDD layer discipline — no framework imports in domain, TDD compliance, code structure, naming conventions"
+layer = "quality"
+
+[model]
+provider = "deepseek"
+model = "deepseek-v4-pro"
+
+[skills]
+names = [
+  "flutter-code-review"
+]
+
+[toolsets]
+enabled = [
+  "terminal",
+  "file"
+]
+
+[context]
+requires = [
+  { role = "entity-designer", output = "shared/domain/" }
+]
+produces = "code-critique.md"
+
+[dependencies]
+adapters = []
+system_packages = []
