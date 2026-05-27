@@ -1,0 +1,31 @@
+[agent]
+role = "navigation-designer"
+description = "Designs route tables, deep linking, GoRouter configuration, and navigation patterns"
+layer = "application"
+
+[model]
+provider = "deepseek"
+model = "deepseek-v4-pro"
+
+[skills]
+names = [
+  "flutter-tdd",
+  "flutter-code-review"
+]
+
+[toolsets]
+enabled = [
+  "terminal",
+  "file"
+]
+
+[context]
+requires = [
+  { role = "context-mapper", output = "context-map-proposal.md" },
+  { role = "spec-author", output = "design-system-specs" }
+]
+produces = "navigation-config"
+
+[dependencies]
+adapters = []
+system_packages = []

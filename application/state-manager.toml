@@ -1,0 +1,31 @@
+[agent]
+role = "state-manager"
+description = "Implements application services, commands, queries, and state management (Riverpod/Bloc)"
+layer = "application"
+
+[model]
+provider = "deepseek"
+model = "deepseek-v4-pro"
+
+[skills]
+names = [
+  "flutter-tdd",
+  "flutter-code-review"
+]
+
+[toolsets]
+enabled = [
+  "terminal",
+  "file"
+]
+
+[context]
+requires = [
+  { role = "entity-designer", output = "shared/domain/" },
+  { role = "infra-builder", output = "shared/infrastructure/" }
+]
+produces = "shared/application/"
+
+[dependencies]
+adapters = []
+system_packages = []
