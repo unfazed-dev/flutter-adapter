@@ -64,8 +64,7 @@ ThemeData(
     elevation: 0,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
   ),
-  // Shape tokens
-  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+  // Shape tokens — apply to component themes (CardTheme, DialogTheme, etc.), not top-level ThemeData
 );
 ```
 
