@@ -1,0 +1,30 @@
+[agent]
+role = "deploy-agent"
+description = "Deploys to app stores (App Store Connect, Google Play), Shorebird code push, or web hosting (Firebase/Vercel)"
+layer = "delivery"
+
+[model]
+provider = "deepseek"
+model = "deepseek-v4-pro"
+
+[skills]
+names = [
+  "flutter-debugging"
+]
+
+[toolsets]
+enabled = [
+  "terminal",
+  "file",
+  "web"
+]
+
+[context]
+requires = [
+  { role = "build-agent", output = "build/" }
+]
+produces = "deployment-report.md"
+
+[dependencies]
+adapters = []
+system_packages = ["flutter", "fastlane", "shorebird"]

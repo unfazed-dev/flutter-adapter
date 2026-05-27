@@ -1,0 +1,33 @@
+[agent]
+role = "build-agent"
+description = "Builds Flutter APK/IPA/web artifacts — wires main.dart, platform configs, CI workflows, packages and signs"
+layer = "delivery"
+
+[model]
+provider = "deepseek"
+model = "deepseek-v4-pro"
+
+[skills]
+names = [
+  "flutter-code-review",
+  "flutter-debugging"
+]
+
+[toolsets]
+enabled = [
+  "terminal",
+  "file",
+  "web"
+]
+
+[context]
+requires = [
+  { role = "widget-composer", output = "flutter-app/presentation/" },
+  { role = "state-manager", output = "shared/application/" },
+  { role = "navigation-designer", output = "navigation-config" }
+]
+produces = "build/"
+
+[dependencies]
+adapters = []
+system_packages = ["flutter", "dart", "android-sdk"]
