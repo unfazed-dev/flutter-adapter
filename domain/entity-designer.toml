@@ -1,0 +1,30 @@
+[agent]
+role = "entity-designer"
+description = "Designs DDD domain layer — entities, value objects, aggregates, repositories — with TDD"
+layer = "domain"
+
+[model]
+provider = "deepseek"
+model = "deepseek-v4-pro"
+
+[skills]
+names = [
+  "flutter-tdd",
+  "flutter-code-review"
+]
+
+[toolsets]
+enabled = [
+  "terminal",
+  "file"
+]
+
+[context]
+requires = [
+  { role = "context-mapper", output = "context-map-proposal.md" }
+]
+produces = "shared/domain/"
+
+[dependencies]
+adapters = []
+system_packages = []
