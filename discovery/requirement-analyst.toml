@@ -1,0 +1,28 @@
+[agent]
+role = "requirement-analyst"
+description = "Translates project briefs and design files into structured requirements — screens, primitives, fields, clusters, brand tokens"
+layer = "discovery"
+
+[model]
+provider = "deepseek"
+model = "deepseek-v4-pro"
+
+[skills]
+names = [
+  "flutter-ui-design"
+]
+
+[toolsets]
+enabled = [
+  "terminal",
+  "file",
+  "web"
+]
+
+[context]
+requires = []
+produces = "design-analysis.json"
+
+[dependencies]
+adapters = []
+system_packages = []

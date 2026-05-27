@@ -1,0 +1,29 @@
+[agent]
+role = "context-mapper"
+description = "Identifies bounded contexts, maps screen→context assignments, produces context-map-proposal.md"
+layer = "discovery"
+
+[model]
+provider = "deepseek"
+model = "deepseek-v4-pro"
+
+[skills]
+names = [
+  "flutter-code-review"
+]
+
+[toolsets]
+enabled = [
+  "terminal",
+  "file"
+]
+
+[context]
+requires = [
+  { role = "requirement-analyst", output = "design-analysis.json" }
+]
+produces = "context-map-proposal.md"
+
+[dependencies]
+adapters = []
+system_packages = []
