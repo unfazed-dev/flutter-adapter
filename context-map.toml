@@ -1,0 +1,71 @@
+# Flutter Adapter — Context Map
+# DDD strategic pattern: declares how bounded contexts (agent layers)
+# relate to each other. Used by the orchestrator to determine
+# execution order and parallelism.
+
+[[contexts]]
+name = "discovery"
+agents = ["requirement-analyst", "context-mapper"]
+upstream = []
+downstream = ["specification", "domain"]
+
+[[contexts]]
+name = "specification"
+agents = ["spec-author"]
+upstream = ["discovery"]
+downstream = ["presentation", "quality"]
+
+[[contexts]]
+name = "domain"
+agents = ["entity-designer"]
+upstream = ["discovery"]
+downstream = ["infrastructure", "application"]
+
+[[contexts]]
+name = "infrastructure"
+agents = ["infra-builder"]
+upstream = ["domain"]
+downstream = ["application"]
+
+[[contexts]]
+name = "application"
+agents = ["state-manager", "navigation-designer"]
+upstream = ["domain", "infrastructure", "discovery", "specification"]
+downstream = ["presentation"]
+
+[[contexts]]
+name = "presentation"
+agents = ["widget-composer", "theme-builder"]
+upstream = ["specification", "domain", "infrastructure", "application"]
+downstream = ["delivery", "quality"]
+
+[[contexts]]
+name = "quality"
+agents = ["test-runner", "code-reviewer", "spec-inspector", "design-critic", "code-critic"]
+upstream = ["presentation", "specification", "domain"]
+downstream = []
+
+[[contexts]]
+name = "delivery"
+agents = ["build-agent", "deploy-agent"]
+upstream = ["presentation"]
+downstream = ["operations"]
+
+[[contexts]]
+name = "operations"
+agents = ["env-doctor"]
+upstream = ["delivery"]
+downstream = []
+
+[relationships]
+discovery_specification = "partner"
+discovery_domain = "partner"
+specification_presentation = "partner"
+specification_quality = "partner"
+domain_infrastructure = "partner"
+domain_application = "partner"
+infrastructure_application = "partner"
+application_presentation = "partner"
+presentation_delivery = "partner"
+presentation_quality = "partner"
+delivery_operations = "partner"
