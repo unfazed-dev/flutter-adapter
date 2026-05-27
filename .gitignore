@@ -1,0 +1,52 @@
+# Flutter / Dart
+.dart_tool/
+.dart-version
+.packages
+.pub/
+build/
+*.iml
+*.ipr
+*.iws
+.idea/
+.vscode/
+
+# Android
+*.apk
+*.aab
+*.dex
+*.class
+*.log
+gen/
+.gradle/
+local.properties
+
+# iOS / macOS
+*.ipa
+*.dSYM.zip
+*.dSYM
+**/ios/Flutter/Generated.xcconfig
+**/macos/Flutter/GeneratedPluginRegistrant.swift
+**/macos/Pods/
+Pods/
+
+# Generated source files
+*.g.dart
+*.freezed.dart
+*.mocks.dart
+
+# macOS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.*.local
+
+# Test / coverage
+coverage/
+
+# Misc
+*.log
+*.swp
+*.swo
+*~
