@@ -21,6 +21,8 @@ enabled = [
 
 [context]
 requires = [
+  { role = "entity-designer", output = "shared/domain/" },
+  { role = "infra-builder", output = "shared/infrastructure/" },
   { role = "widget-composer", output = "flutter-app/presentation/" },
   { role = "state-manager", output = "shared/application/" }
 ]

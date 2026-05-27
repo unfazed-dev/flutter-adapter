@@ -20,7 +20,10 @@ enabled = [
 
 [context]
 requires = [
-  { role = "entity-designer", output = "shared/domain/" }
+  { role = "entity-designer", output = "shared/domain/" },
+  { role = "state-manager", output = "shared/application/" },
+  { role = "infra-builder", output = "shared/infrastructure/" },
+  { role = "widget-composer", output = "flutter-app/presentation/" }
 ]
 produces = "code-critique.md"
 
