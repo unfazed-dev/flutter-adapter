@@ -1,0 +1,31 @@
+[agent]
+role = "infra-builder"
+description = "Sets up infrastructure — database migrations, edge functions, storage config, API scaffolding"
+layer = "infrastructure"
+
+[model]
+provider = "deepseek"
+model = "deepseek-v4-pro"
+
+[skills]
+names = [
+  "flutter-tdd",
+  "flutter-code-review"
+]
+
+[toolsets]
+enabled = [
+  "terminal",
+  "file",
+  "web"
+]
+
+[context]
+requires = [
+  { role = "entity-designer", output = "shared/domain/" }
+]
+produces = "shared/infrastructure/"
+
+[dependencies]
+adapters = []
+system_packages = []
