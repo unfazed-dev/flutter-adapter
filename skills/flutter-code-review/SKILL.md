@@ -89,7 +89,7 @@ flutter pub outdated
 
 ## Pitfalls
 
-- **Don't block PR on style nits**: Use `flutter format` (dart format) and CI enforcement for style. Reviews focus on logic, architecture, and correctness.
+- **Don't block PR on style nits**: Use `dart format` and CI enforcement for style. Reviews focus on logic, architecture, and correctness.
 - **DDD violations are blocking**: A domain entity importing `package:flutter/material.dart` is a hard fail — architecture violations compound fast.
 - **Accessibility is not optional**: Missing `Semantics` on interactive elements blocks the `design-critic` gate.
 - **Performance regressions**: `ListView` (non-builder) with > 50 items is a blocking issue for release builds.
