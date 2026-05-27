@@ -1,0 +1,14 @@
+{
+  "project_slug": "my-flutter-app",
+  "app_name": "My Flutter App",
+  "description": "A Flutter application built with Maestro",
+  "org_identifier": "com.example",
+  "platforms": ["ios", "android", "web"],
+  "use_riverpod": true,
+  "use_go_router": true,
+  "use_shorebird": false,
+  "min_sdk_version": "21",
+  "target_sdk_version": "34",
+  "ios_deployment_target": "14.0",
+  "_extensions": ["jinja2_time.TimeExtension"]
+}
