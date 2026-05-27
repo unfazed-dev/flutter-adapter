@@ -1,0 +1,30 @@
+[agent]
+role = "theme-builder"
+description = "Generates Material Design theme from design system token tables — colors, typography, spacing, elevation"
+layer = "presentation"
+
+[model]
+provider = "deepseek"
+model = "deepseek-v4-pro"
+
+[skills]
+names = [
+  "flutter-ui-design",
+  "flutter-tdd"
+]
+
+[toolsets]
+enabled = [
+  "terminal",
+  "file"
+]
+
+[context]
+requires = [
+  { role = "spec-author", output = "design-system-specs" }
+]
+produces = "design-tokens"
+
+[dependencies]
+adapters = []
+system_packages = ["flutter", "dart"]

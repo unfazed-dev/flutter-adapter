@@ -1,0 +1,35 @@
+[agent]
+role = "widget-composer"
+description = "Builds Flutter widgets from screen specifications and design tokens — per-screen fan-out with parallel execution"
+layer = "presentation"
+
+[model]
+provider = "deepseek"
+model = "deepseek-v4-pro"
+
+[skills]
+names = [
+  "flutter-tdd",
+  "flutter-ui-design",
+  "flutter-code-review"
+]
+
+[toolsets]
+enabled = [
+  "terminal",
+  "file"
+]
+
+[context]
+requires = [
+  { role = "spec-author", output = "design-system-specs" },
+  { role = "entity-designer", output = "shared/domain/" },
+  { role = "infra-builder", output = "shared/infrastructure/" },
+  { role = "state-manager", output = "shared/application/" },
+  { role = "theme-builder", output = "design-tokens" }
+]
+produces = "flutter-app/presentation/"
+
+[dependencies]
+adapters = []
+system_packages = ["flutter", "dart"]
