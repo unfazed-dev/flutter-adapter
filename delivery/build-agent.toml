@@ -22,7 +22,10 @@ enabled = [
 
 [context]
 requires = [
-  { role = "widget-composer", output = "flutter-app/presentation/" },
+  { role = "hig-widget-composer", output = "flutter-app/presentation/ios/" },
+  { role = "m3-widget-composer", output = "flutter-app/presentation/android/" },
+  { role = "shadcn-widget-composer", output = "flutter-app/presentation/web/" },
+  { role = "replica-widget-composer", output = "flutter-app/presentation/replica/" },
   { role = "state-manager", output = "shared/application/" },
   { role = "navigation-designer", output = "navigation-config" }
 ]

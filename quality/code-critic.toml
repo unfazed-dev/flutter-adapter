@@ -23,7 +23,10 @@ requires = [
   { role = "entity-designer", output = "shared/domain/" },
   { role = "state-manager", output = "shared/application/" },
   { role = "infra-builder", output = "shared/infrastructure/" },
-  { role = "widget-composer", output = "flutter-app/presentation/" }
+  { role = "hig-widget-composer", output = "flutter-app/presentation/ios/" },
+  { role = "m3-widget-composer", output = "flutter-app/presentation/android/" },
+  { role = "shadcn-widget-composer", output = "flutter-app/presentation/web/" },
+  { role = "replica-widget-composer", output = "flutter-app/presentation/replica/" }
 ]
 produces = "code-critique.md"
 
