@@ -58,7 +58,7 @@ owner = "m3-theme-builder"
 
 [[contexts]]
 name = "shadcn-design-system"
-description = "shadcn_flutter design system — accessible web/desktop components"
+description = "shadcn_flutter design system — accessible components for mobile"
 owner = "shadcn-theme-builder"
 
 [[contexts]]

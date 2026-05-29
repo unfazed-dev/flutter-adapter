@@ -1,6 +1,6 @@
 [agent]
 role = "shadcn-widget-composer"
-description = "Builds web/desktop Flutter widgets using shadcn_flutter — accessible components with built-in a11y as native anchor"
+description = "Builds mobile Flutter widgets using shadcn_flutter — accessible components with built-in a11y"
 layer = "presentation"
 
 [model]
@@ -29,7 +29,7 @@ requires = [
   { role = "state-manager", output = "shared/application/" },
   { role = "shadcn-theme-builder", output = "shadcn-design-tokens" }
 ]
-produces = "flutter-app/presentation/web/"
+produces = "flutter-app/presentation/shadcn/"
 
 [dependencies]
 adapters = []

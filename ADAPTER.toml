@@ -73,7 +73,7 @@ description = "Builds Android-native Flutter widgets with PlatformView embeds �
 [[agents]]
 role = "shadcn-widget-composer"
 path = "presentation/shadcn-widget-composer.toml"
-description = "Builds web/desktop Flutter widgets using shadcn_flutter — accessible components with built-in a11y"
+description = "Builds mobile Flutter widgets using shadcn_flutter — accessible components with built-in a11y"
 
 [[agents]]
 role = "replica-widget-composer"
@@ -200,4 +200,4 @@ roles = [
   "idempotency-verifier"
 ]
 stacks = ["flutter", "dart"]
-platforms = ["ios", "android", "web", "macos", "linux", "windows"]
+platforms = ["ios", "android"]
