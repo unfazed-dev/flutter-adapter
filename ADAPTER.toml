@@ -201,3 +201,30 @@ roles = [
 ]
 stacks = ["flutter", "dart"]
 platforms = ["ios", "android"]
+
+[slots]
+discover-requirements = ["requirement-analyst"]
+map-contexts = ["context-mapper"]
+author-specs = ["spec-author"]
+design-entities = ["entity-designer"]
+build-infrastructure = ["infra-builder"]
+implement-application = ["state-manager", "navigation-designer"]
+build-presentation = [
+  "hig-theme-builder",
+  "m3-theme-builder",
+  "shadcn-theme-builder",
+  "hig-widget-composer",
+  "m3-widget-composer",
+  "shadcn-widget-composer",
+  "replica-widget-composer"
+]
+validate-design = ["hig-design-critic", "m3-design-critic"]
+inspect-specs = ["spec-inspector"]
+review-code = ["code-reviewer"]
+audit-structure = ["code-critic"]
+build-release = ["build-agent", "deploy-agent"]
+validate-environment = ["env-doctor"]
+
+[slots.strategies]
+build-presentation = "fan-out-parallel"
+validate-design = "fan-out-parallel"
