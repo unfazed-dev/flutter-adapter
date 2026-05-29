@@ -5,6 +5,7 @@
 name = "flutter-adapter"
 version = "1.1.0"
 description = "Flutter stack specialist — mobile + web agents, HIG/M3/shadcn design systems, Stacked MVVM, PlatformView embeds, probe-runner verification"
+class = "frontend"
 
 [author]
 name = "Maestro Platform"
@@ -203,28 +204,13 @@ stacks = ["flutter", "dart"]
 platforms = ["ios", "android"]
 
 [slots]
-discover-requirements = ["requirement-analyst"]
-map-contexts = ["context-mapper"]
-author-specs = ["spec-author"]
-design-entities = ["entity-designer"]
-build-infrastructure = ["infra-builder"]
-implement-application = ["state-manager", "navigation-designer"]
 build-presentation = [
-  "hig-theme-builder",
-  "m3-theme-builder",
-  "shadcn-theme-builder",
-  "hig-widget-composer",
-  "m3-widget-composer",
-  "shadcn-widget-composer",
-  "replica-widget-composer"
+  "hig-theme-builder", "m3-theme-builder",
+  "hig-widget-composer", "m3-widget-composer",
+  "state-manager", "navigation-designer"
 ]
-validate-design = ["hig-design-critic", "m3-design-critic"]
-inspect-specs = ["spec-inspector"]
-review-code = ["code-reviewer"]
-audit-structure = ["code-critic"]
 build-release = ["build-agent", "deploy-agent"]
 validate-environment = ["env-doctor"]
-
-[slots.strategies]
-build-presentation = "fan-out-parallel"
-validate-design = "fan-out-parallel"
+validate-design = ["hig-design-critic", "m3-design-critic"]
+review-code = ["code-reviewer"]
+audit-structure = ["code-critic"]
