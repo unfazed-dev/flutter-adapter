@@ -3,8 +3,8 @@
 # Read by `maestro kit install` to resolve abstract roles → concrete agents.
 
 name = "flutter-adapter"
-version = "1.0.0"
-description = "Flutter stack specialist — mobile + web agents, Material Design specs, CocoaPods CI, Shorebird code push"
+version = "1.1.0"
+description = "Flutter stack specialist — mobile + web agents, HIG/M3/shadcn design systems, Stacked MVVM, PlatformView embeds, probe-runner verification"
 
 [author]
 name = "Maestro Platform"
@@ -46,14 +46,39 @@ path = "application/navigation-designer.toml"
 description = "Designs route tables, deep linking, and navigation patterns"
 
 [[agents]]
-role = "widget-composer"
-path = "presentation/widget-composer.toml"
-description = "Builds Flutter widgets from screen specifications and design tokens"
+role = "hig-theme-builder"
+path = "presentation/hig-theme-builder.toml"
+description = "Generates Cupertino/HIG theme from design tokens — Liquid Glass materials, iOS color system, SF typography"
 
 [[agents]]
-role = "theme-builder"
-path = "presentation/theme-builder.toml"
-description = "Generates Material Design theme from design system token tables"
+role = "m3-theme-builder"
+path = "presentation/m3-theme-builder.toml"
+description = "Generates Material Design 3 theme — tonal palettes, elevation system, state layers"
+
+[[agents]]
+role = "shadcn-theme-builder"
+path = "presentation/shadcn-theme-builder.toml"
+description = "Generates shadcn_flutter theme — ShadTheme configuration, color scheme, radii scale"
+
+[[agents]]
+role = "hig-widget-composer"
+path = "presentation/hig-widget-composer.toml"
+description = "Builds iOS-native Flutter widgets with PlatformView embeds — Cupertino + UiKitView SwiftUI wrappers"
+
+[[agents]]
+role = "m3-widget-composer"
+path = "presentation/m3-widget-composer.toml"
+description = "Builds Android-native Flutter widgets with PlatformView embeds — Material + AndroidView Compose wrappers"
+
+[[agents]]
+role = "shadcn-widget-composer"
+path = "presentation/shadcn-widget-composer.toml"
+description = "Builds web/desktop Flutter widgets using shadcn_flutter — accessible components with built-in a11y"
+
+[[agents]]
+role = "replica-widget-composer"
+path = "presentation/replica-widget-composer.toml"
+description = "Generates pure Flutter pixel-perfect replicas from design mockups — design is single source of truth"
 
 [[agents]]
 role = "test-runner"
@@ -64,6 +89,16 @@ description = "Runs Flutter unit, widget, and integration tests; reports results
 role = "code-reviewer"
 path = "quality/code-reviewer.toml"
 description = "Reviews Flutter/Dart code for best practices, DDD discipline, test coverage"
+
+[[agents]]
+role = "hig-design-critic"
+path = "quality/hig-design-critic.toml"
+description = "Validates iOS/HIG output — Liquid Glass correctness, Cupertino conformance, iOS deviations"
+
+[[agents]]
+role = "m3-design-critic"
+path = "quality/m3-design-critic.toml"
+description = "Validates Android/M3 output — tonal palette accuracy, elevation levels, state layers"
 
 [[agents]]
 role = "build-agent"
@@ -86,14 +121,19 @@ path = "quality/spec-inspector.toml"
 description = "Validates design analysis against known spec schemas — primitives, states, variants, tokens"
 
 [[agents]]
-role = "design-critic"
-path = "quality/design-critic.toml"
-description = "Reviews design tokens against HIG Liquid Glass + M3 Expressive Alpha — inconsistency, contrast, missing states"
-
-[[agents]]
 role = "code-critic"
 path = "quality/code-critic.toml"
 description = "Checks DDD layer discipline, TDD compliance, code structure, naming conventions"
+
+[[agents]]
+role = "stacked-scaffolder"
+path = "delivery/stacked-scaffolder.toml"
+description = "Scaffolds the Stacked MVVM project skeleton via stacked create app"
+
+[[agents]]
+role = "idempotency-verifier"
+path = "operations/idempotency-verifier.toml"
+description = "Runs probe-runner to verify golden-spec fidelity and snapshot idempotency"
 
 [[skills]]
 name = "flutter-tdd"
@@ -105,7 +145,15 @@ description = "Flutter/Dart code review with best practice checks and DDD layer 
 
 [[skills]]
 name = "flutter-ui-design"
-description = "Flutter Material Design composition patterns and HIG/M3 token application"
+description = "Shared Flutter design fundamentals — layout, composition, responsive patterns, widget lifecycle"
+
+[[skills]]
+name = "flutter-hig-design"
+description = "Apple HIG design patterns — Cupertino widgets, Liquid Glass materials, iOS color system, iOS deviations"
+
+[[skills]]
+name = "flutter-m3-design"
+description = "Material Design 3 patterns — tonal palettes, elevation system, state layers, dynamic color"
 
 [[skills]]
 name = "flutter-debugging"
@@ -114,6 +162,14 @@ description = "Flutter-specific debugging: CanvasKit rendering, widget tree, sta
 [[skills]]
 name = "flutter-platform-validation"
 description = "PlatformView and native embed validation on Android and iOS"
+
+[[skills]]
+name = "flutter-stacked"
+description = "Stacked MVVM patterns — ViewModels, Views, service registration, routing"
+
+[[skills]]
+name = "flutter-platformview"
+description = "PlatformView native embed code generation — UiKitView/AndroidView factories, MethodChannel bridges"
 
 [capabilities]
 roles = [
@@ -124,16 +180,24 @@ roles = [
   "infra-builder",
   "state-manager",
   "navigation-designer",
-  "widget-composer",
-  "theme-builder",
+  "hig-theme-builder",
+  "m3-theme-builder",
+  "shadcn-theme-builder",
+  "hig-widget-composer",
+  "m3-widget-composer",
+  "shadcn-widget-composer",
+  "replica-widget-composer",
   "test-runner",
   "code-reviewer",
+  "hig-design-critic",
+  "m3-design-critic",
   "build-agent",
   "deploy-agent",
   "env-doctor",
   "spec-inspector",
-  "design-critic",
-  "code-critic"
+  "code-critic",
+  "stacked-scaffolder",
+  "idempotency-verifier"
 ]
 stacks = ["flutter", "dart"]
 platforms = ["ios", "android", "web", "macos", "linux", "windows"]

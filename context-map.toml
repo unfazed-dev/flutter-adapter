@@ -28,8 +28,8 @@ owner = "state-manager"
 
 [[contexts]]
 name = "presentation"
-description = "Flutter widgets and Material Design theme"
-owner = "widget-composer"
+description = "Flutter widgets across HIG/M3/shadcn design systems"
+owner = "hig-widget-composer"
 
 [[contexts]]
 name = "quality"
@@ -45,6 +45,26 @@ owner = "build-agent"
 name = "operations"
 description = "Environment validation and tooling"
 owner = "env-doctor"
+
+[[contexts]]
+name = "hig-design-system"
+description = "Apple HIG design system — Cupertino theme, Liquid Glass materials, iOS platform patterns"
+owner = "hig-theme-builder"
+
+[[contexts]]
+name = "m3-design-system"
+description = "Material Design 3 system — tonal palettes, elevation, state layers, Android platform patterns"
+owner = "m3-theme-builder"
+
+[[contexts]]
+name = "shadcn-design-system"
+description = "shadcn_flutter design system — accessible web/desktop components"
+owner = "shadcn-theme-builder"
+
+[[contexts]]
+name = "replica-mode"
+description = "Pure Flutter pixel-perfect replica rendering — no native widgets, design as source of truth"
+owner = "replica-widget-composer"
 
 [[relationships]]
 upstream = "discovery"
@@ -141,3 +161,45 @@ upstream = "delivery"
 downstream = "operations"
 pattern = "customer-supplier"
 description = "Operations validates deployment environment"
+
+[[relationships]]
+upstream = "specification"
+downstream = "hig-design-system"
+pattern = "customer-supplier"
+description = "HIG theme is generated from design system specs"
+
+[[relationships]]
+upstream = "specification"
+downstream = "m3-design-system"
+pattern = "customer-supplier"
+description = "M3 theme is generated from design system specs"
+
+[[relationships]]
+upstream = "specification"
+downstream = "shadcn-design-system"
+pattern = "customer-supplier"
+description = "Shadcn theme is generated from design system specs"
+
+[[relationships]]
+upstream = "hig-design-system"
+downstream = "presentation"
+pattern = "customer-supplier"
+description = "HIG widgets consume HIG theme tokens"
+
+[[relationships]]
+upstream = "m3-design-system"
+downstream = "presentation"
+pattern = "customer-supplier"
+description = "M3 widgets consume M3 theme tokens"
+
+[[relationships]]
+upstream = "presentation"
+downstream = "quality"
+pattern = "customer-supplier"
+description = "Design critics validate widget output"
+
+[[relationships]]
+upstream = "specification"
+downstream = "replica-mode"
+pattern = "customer-supplier"
+description = "Replica widgets consume design specs directly"
