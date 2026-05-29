@@ -1,0 +1,32 @@
+[agent]
+role = "idempotency-verifier"
+description = "Runs probe-runner to verify golden-spec fidelity and snapshot idempotency — captures design bundle vs app bundle, diffs with skeleton_diff, certifies deterministic output"
+layer = "operations"
+
+[model]
+provider = "deepseek"
+model = "deepseek-v4-pro"
+
+[skills]
+names = [
+  "flutter-platform-validation"
+]
+
+[toolsets]
+enabled = [
+  "terminal",
+  "file"
+]
+
+[context]
+requires = [
+  { role = "hig-widget-composer", output = "flutter-app/presentation/ios/" },
+  { role = "m3-widget-composer", output = "flutter-app/presentation/android/" },
+  { role = "shadcn-widget-composer", output = "flutter-app/presentation/web/" },
+  { role = "replica-widget-composer", output = "flutter-app/presentation/replica/" }
+]
+produces = "verification-report.json"
+
+[dependencies]
+adapters = []
+system_packages = ["python3", "probe-runner"]

@@ -1,0 +1,32 @@
+[agent]
+role = "m3-design-critic"
+description = "Validates Android/M3 design output — tonal palette accuracy, elevation levels, state layer application, Material widget conformance"
+layer = "quality"
+
+[model]
+provider = "deepseek"
+model = "deepseek-v4-pro"
+
+[skills]
+names = [
+  "flutter-m3-design",
+  "flutter-ui-design",
+  "flutter-platform-validation"
+]
+
+[toolsets]
+enabled = [
+  "terminal",
+  "file"
+]
+
+[context]
+requires = [
+  { role = "spec-author", output = "design-system-specs" },
+  { role = "m3-widget-composer", output = "flutter-app/presentation/android/" }
+]
+produces = "m3-design-critique.md"
+
+[dependencies]
+adapters = []
+system_packages = []

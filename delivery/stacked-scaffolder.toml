@@ -1,0 +1,29 @@
+[agent]
+role = "stacked-scaffolder"
+description = "Scaffolds the Stacked MVVM project skeleton via stacked create app — sets up routing, service registration, and feature folder structure before widget composers run"
+layer = "delivery"
+
+[model]
+provider = "deepseek"
+model = "deepseek-v4-pro"
+
+[skills]
+names = [
+  "flutter-stacked"
+]
+
+[toolsets]
+enabled = [
+  "terminal",
+  "file"
+]
+
+[context]
+requires = [
+  { role = "spec-author", output = "design-system-specs" }
+]
+produces = "flutter-app/"
+
+[dependencies]
+adapters = []
+system_packages = ["flutter", "dart"]

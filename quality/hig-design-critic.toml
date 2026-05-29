@@ -1,0 +1,32 @@
+[agent]
+role = "hig-design-critic"
+description = "Validates iOS/HIG design output — Liquid Glass material correctness, Cupertino widget conformance, iOS-only deviations (toast→dialog), contrast, missing states"
+layer = "quality"
+
+[model]
+provider = "deepseek"
+model = "deepseek-v4-pro"
+
+[skills]
+names = [
+  "flutter-hig-design",
+  "flutter-ui-design",
+  "flutter-platform-validation"
+]
+
+[toolsets]
+enabled = [
+  "terminal",
+  "file"
+]
+
+[context]
+requires = [
+  { role = "spec-author", output = "design-system-specs" },
+  { role = "hig-widget-composer", output = "flutter-app/presentation/ios/" }
+]
+produces = "hig-design-critique.md"
+
+[dependencies]
+adapters = []
+system_packages = []
