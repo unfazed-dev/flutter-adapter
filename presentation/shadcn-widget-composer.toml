@@ -1,0 +1,36 @@
+[agent]
+role = "shadcn-widget-composer"
+description = "Builds web/desktop Flutter widgets using shadcn_flutter — accessible components with built-in a11y as native anchor"
+layer = "presentation"
+
+[model]
+provider = "deepseek"
+model = "deepseek-v4-pro"
+
+[skills]
+names = [
+  "flutter-m3-design",
+  "flutter-ui-design",
+  "flutter-stacked",
+  "flutter-tdd"
+]
+
+[toolsets]
+enabled = [
+  "terminal",
+  "file"
+]
+
+[context]
+requires = [
+  { role = "spec-author", output = "design-system-specs" },
+  { role = "entity-designer", output = "shared/domain/" },
+  { role = "infra-builder", output = "shared/infrastructure/" },
+  { role = "state-manager", output = "shared/application/" },
+  { role = "shadcn-theme-builder", output = "shadcn-design-tokens" }
+]
+produces = "flutter-app/presentation/web/"
+
+[dependencies]
+adapters = []
+system_packages = ["flutter", "dart"]

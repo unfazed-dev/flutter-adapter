@@ -1,0 +1,37 @@
+[agent]
+role = "m3-widget-composer"
+description = "Builds Android-native Flutter widgets with PlatformView embeds — Material widgets + AndroidView Compose wrappers for visual-critical primitives"
+layer = "presentation"
+
+[model]
+provider = "deepseek"
+model = "deepseek-v4-pro"
+
+[skills]
+names = [
+  "flutter-m3-design",
+  "flutter-ui-design",
+  "flutter-stacked",
+  "flutter-platformview",
+  "flutter-tdd"
+]
+
+[toolsets]
+enabled = [
+  "terminal",
+  "file"
+]
+
+[context]
+requires = [
+  { role = "spec-author", output = "design-system-specs" },
+  { role = "entity-designer", output = "shared/domain/" },
+  { role = "infra-builder", output = "shared/infrastructure/" },
+  { role = "state-manager", output = "shared/application/" },
+  { role = "m3-theme-builder", output = "m3-design-tokens" }
+]
+produces = "flutter-app/presentation/android/"
+
+[dependencies]
+adapters = []
+system_packages = ["flutter", "dart"]

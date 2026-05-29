@@ -1,0 +1,31 @@
+[agent]
+role = "replica-widget-composer"
+description = "Generates pure Flutter pixel-perfect replicas from design mockups — no native widgets, design is the single source of truth"
+layer = "presentation"
+
+[model]
+provider = "deepseek"
+model = "deepseek-v4-pro"
+
+[skills]
+names = [
+  "flutter-ui-design",
+  "flutter-stacked",
+  "flutter-tdd"
+]
+
+[toolsets]
+enabled = [
+  "terminal",
+  "file"
+]
+
+[context]
+requires = [
+  { role = "spec-author", output = "design-system-specs" }
+]
+produces = "flutter-app/presentation/replica/"
+
+[dependencies]
+adapters = []
+system_packages = ["flutter", "dart"]
