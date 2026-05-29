@@ -10,6 +10,7 @@ model = "deepseek-v4-pro"
 [skills]
 names = [
   "flutter-ui-design",
+  "flutter-stacked",
   "flutter-tdd"
 ]
 

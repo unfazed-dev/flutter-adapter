@@ -9,6 +9,7 @@ model = "deepseek-v4-pro"
 
 [skills]
 names = [
+  "flutter-stacked",
   "flutter-code-review",
   "flutter-tdd"
 ]
