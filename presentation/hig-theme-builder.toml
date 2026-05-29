@@ -1,0 +1,31 @@
+[agent]
+role = "hig-theme-builder"
+description = "Generates Cupertino/HIG theme from design tokens — Liquid Glass materials, iOS color system, San Francisco typography scale"
+layer = "presentation"
+
+[model]
+provider = "deepseek"
+model = "deepseek-v4-pro"
+
+[skills]
+names = [
+  "flutter-hig-design",
+  "flutter-ui-design",
+  "flutter-tdd"
+]
+
+[toolsets]
+enabled = [
+  "terminal",
+  "file"
+]
+
+[context]
+requires = [
+  { role = "spec-author", output = "design-system-specs" }
+]
+produces = "hig-design-tokens"
+
+[dependencies]
+adapters = []
+system_packages = ["flutter", "dart"]

@@ -1,0 +1,31 @@
+[agent]
+role = "shadcn-theme-builder"
+description = "Generates shadcn_flutter theme from design tokens — ShadTheme configuration, color scheme, border radius scale"
+layer = "presentation"
+
+[model]
+provider = "deepseek"
+model = "deepseek-v4-pro"
+
+[skills]
+names = [
+  "flutter-m3-design",
+  "flutter-ui-design",
+  "flutter-tdd"
+]
+
+[toolsets]
+enabled = [
+  "terminal",
+  "file"
+]
+
+[context]
+requires = [
+  { role = "spec-author", output = "design-system-specs" }
+]
+produces = "shadcn-design-tokens"
+
+[dependencies]
+adapters = []
+system_packages = ["flutter", "dart"]

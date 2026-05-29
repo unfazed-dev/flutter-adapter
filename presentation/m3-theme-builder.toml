@@ -1,0 +1,31 @@
+[agent]
+role = "m3-theme-builder"
+description = "Generates Material Design 3 theme from design tokens — tonal palettes, elevation system, type scale, state layers"
+layer = "presentation"
+
+[model]
+provider = "deepseek"
+model = "deepseek-v4-pro"
+
+[skills]
+names = [
+  "flutter-m3-design",
+  "flutter-ui-design",
+  "flutter-tdd"
+]
+
+[toolsets]
+enabled = [
+  "terminal",
+  "file"
+]
+
+[context]
+requires = [
+  { role = "spec-author", output = "design-system-specs" }
+]
+produces = "m3-design-tokens"
+
+[dependencies]
+adapters = []
+system_packages = ["flutter", "dart"]
